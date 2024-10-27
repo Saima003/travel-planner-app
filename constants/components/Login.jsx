@@ -7,7 +7,7 @@ import { Colors } from '../Colors';
 const Login = () => {
   const sheetRef = useRef(null);
   // const [isOpen, setIsOpen] = useState(true);
-  const snapPoints = ["40%","60%"];
+  const snapPoints = ["40%","50%"];
   useEffect(() => {
     // Open the bottom sheet when the component mounts
     sheetRef.current?.snapToIndex(0);
@@ -27,8 +27,11 @@ const Login = () => {
           <BottomSheetView>
           <Text style={{textAlign:"center", fontFamily:"outfit-bold", fontSize:28}}>AI Travel Planner</Text>
           <Text style={{textAlign:"center", fontFamily:"outfit", fontSize:18, color:Colors.GRAY}}>Discover your next adventure effortlessly.Personalized itineraries at your fingertips.Travel smarter with AI-driven insights.</Text>
-          <View style={styles.button}>
-            <Text style={{color:Colors.WHITE, textAlign:"center", fontFamily:"outfit", fontSize:17}}>Sign In With Google</Text>
+          <View style={styles.loginbutton}>
+            <Text style={{color:Colors.WHITE, textAlign:"center", fontFamily:"outfit", fontSize:17}}>Login</Text>
+          </View>
+          <View style={styles.signupbutton}>
+            <Text style={{color:Colors.PRIMARY, textAlign:"center", fontFamily:"outfit", fontSize:17}}>Sign up</Text>
           </View>
           </BottomSheetView>
         </BottomSheet>
@@ -40,11 +43,21 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
-  button:{
-    padding:10,
+  loginbutton:{
+    padding:12,
     backgroundColor: Colors.PRIMARY,
     borderRadius:99,
-    marginVertical:"20%",
+    marginVertical:"5%",
+    marginHorizontal:"5%"
+  },
+  signupbutton:{
+    padding:10,
+    backgroundColor: Colors.WHITE,
+    color: Colors.PRIMARY,
+    borderColor:Colors.PRIMARY,
+    borderWidth: 2,
+    borderRadius:99,
+    marginBottom:"10%",
     marginHorizontal:"5%"
   }
 });
