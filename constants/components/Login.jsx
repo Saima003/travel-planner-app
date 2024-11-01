@@ -18,9 +18,9 @@ const Login = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        <Image 
-          source={require("../../assets/images/WhatsApp Image 2024-10-16 at 9.08.47 PM.jpg")} 
-          style={{ width: "100%", height: "100%" }} 
+        <Image
+          source={require("../../assets/images/WhatsApp Image 2024-10-16 at 9.08.47 PM.jpg")}
+          style={{ width: "100%", height: "100%" }}
         />
         <BottomSheet
           ref={sheetRef}
@@ -39,16 +39,16 @@ const Login = () => {
             <Text style={styles.description}>
               Discover your next adventure effortlessly. Personalized itineraries at your fingertips. Travel smarter with AI-driven insights.
             </Text>
-            
+
             {/* Login and Signup Buttons */}
-            <TouchableOpacity 
-              style={styles.loginbutton} 
-              onPress={() => console.log("Login pressed")}
+            <TouchableOpacity
+              style={styles.loginbutton}
+              onPress={() => router.push("/auth/sign-in")}
             >
-              <Text style={{ color: Colors.WHITE, textAlign: "center", fontFamily: "outfit", fontSize: 17 }}>Login</Text>
+              <Text style={{ color: Colors.WHITE, textAlign: "center", fontFamily: "outfit", fontSize: 17 }}>Sign In</Text>
             </TouchableOpacity>
-            <TouchableOpacity 
-              style={styles.signupbutton} 
+            <TouchableOpacity
+              style={styles.signupbutton}
               onPress={() => router.push("/auth/sign-up")}
             >
               <Text style={{ color: Colors.PRIMARY, textAlign: "center", fontFamily: "outfit", fontSize: 17 }}>Sign Up</Text>
