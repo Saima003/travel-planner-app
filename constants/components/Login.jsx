@@ -14,7 +14,6 @@ const Login = () => {
   useEffect(() => {
     sheetRef.current?.snapToIndex(0);
   }, []);
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>

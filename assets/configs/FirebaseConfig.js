@@ -8,13 +8,13 @@ import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCuFIm5q_2KV8ch53kFWQJca18aR0IMm7Q",
-  authDomain: "travel-app-75e8e.firebaseapp.com",
-  projectId: "travel-app-75e8e",
-  storageBucket: "travel-app-75e8e.firebasestorage.app",
-  messagingSenderId: "854026705022",
-  appId: "1:854026705022:web:bec18dc2cd74b14405e02f",
-  measurementId: "G-7GMSV65ERB"
+  apiKey: process.env.EXPO_PUBLIC_API_KEY,
+  authDomain: process.env.EXPO_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.EXPO_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.EXPO_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.EXPO_PUBLIC_SENDER_ID,
+  appId: process.env.EXPO_PUBLIC_APP_ID,
+  measurementId: process.env.EXPO_PUBLIC_MEASUREMENT_ID
 };
 
 // Initialize Firebase
