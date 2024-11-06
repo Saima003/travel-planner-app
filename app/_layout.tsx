@@ -8,10 +8,13 @@ export default function RootLayout() {
     "outfit-bold": require("./../assets/fonts/Outfit-Bold.ttf"),
     "outfit-medium": require("./../assets/fonts/Outfit-Medium.ttf"),
   })
+  {/* // 
+  {/* // <Stack>
+  <Stack.Screen name="index"/> */}
   return (
     <Stack screenOptions={{headerShown: false}}>
-    {/* // <Stack> */}
-      <Stack.Screen name="index"/>
+    <Stack.Screen name="(tabs)"/>
+    {/* <Stack.Screen name="index"/> */}
     </Stack>
   );
 }

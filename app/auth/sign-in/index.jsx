@@ -21,6 +21,8 @@ const SignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        router.replace("/MyTrip")
+        // console.log(user,"user")
       })
       .catch((error) => {
         const errorCode = error.code;

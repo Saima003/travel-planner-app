@@ -6,7 +6,7 @@ import { Colors } from "./../../../constants/Colors";
 import { TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { auth } from '../../../assets/configs/FirebaseConfig';
-import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 
@@ -50,6 +50,7 @@ const SignUp = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredentials) => {
           const user = userCredentials.user;
+          router.replace("/MyTrip")
         })
         .catch((error) => {
           console.error('Signup error:', error);
