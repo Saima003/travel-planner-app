@@ -1,7 +1,8 @@
+import 'react-native-gesture-handler';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import React, { useEffect, useRef, useState } from 'react';
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Colors } from '../Colors';
 import { useRouter } from 'expo-router';
 
@@ -14,7 +15,7 @@ const Login = () => {
   useEffect(() => {
     sheetRef.current?.snapToIndex(0);
   }, []);
-  return (
+  return (    
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         <Image
@@ -23,6 +24,7 @@ const Login = () => {
         />
         <BottomSheet
           ref={sheetRef}
+          index={0}
           snapPoints={snapPoints}
           enablePanDownToClose={false} // Allow closing by dragging down
           onChange={(index) => {
