@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import React, { useEffect, useRef, useState } from 'react';
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
-import { Colors } from '../Colors';
+import { Colors } from '../constants/Colors';
 import { useRouter } from 'expo-router';
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         <Image
-          source={require("../../assets/images/WhatsApp Image 2024-10-16 at 9.08.47 PM.jpg")}
+          source={require("../assets/images/WhatsApp Image 2024-10-16 at 9.08.47 PM.jpg")}
           style={{ width: "100%", height: "100%" }}
         />
         <BottomSheet

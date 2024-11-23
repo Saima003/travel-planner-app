@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
-import { Colors } from '../../constants/Colors'
+import React, { useState } from 'react';
+import { Colors } from '../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import StartNewTrip from '../../constants/components/MyTrips/StartNewTrip';
+import StartNewTrip from '../../components/MyTrips/StartNewTrip';
 
 const MyTrip = () => {
   const [userTrips, setUserTrips] = useState([]);

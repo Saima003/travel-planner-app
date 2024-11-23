@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Colors } from '../../Colors';
+import { Colors } from '../../constants/Colors';
 import { TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 const StartNewTrip = () => {

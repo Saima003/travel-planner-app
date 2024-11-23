@@ -1,18 +1,20 @@
 import { StyleSheet, View, TextInput, FlatList, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { useNavigation } from 'expo-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigation, useRouter } from 'expo-router';
 import "react-native-get-random-values";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from '../../constants/Colors';
 import axios from 'axios';
-
+import {CreateTripContext} from "./../../context/CreateTripContext"
 const SearchPlace = () => {
     const navigation = useNavigation();
     const [searchTerm, setSearchTerm] = useState('');
     const [locationResults, setLocationResults] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const [loading, setLoading] = useState(false);
-
+    const {tripData, setTripData}= useContext(CreateTripContext)
+    const router = useRouter()
+    console.log(tripData,"tripData")
     useEffect(() => {
         navigation.setOptions({
             headerShown: true,
@@ -23,7 +25,7 @@ const SearchPlace = () => {
 
     const getLocation = (e) => {
         setSearchTerm(e);
-        if (e.length > 3) {
+        // if (e.length > 3) {
             setLoading(true);
             axios.get(`${process.env.EXPO_PUBLIC_AUTOCOMPLETE_API}=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
                 .then((res) => {
@@ -37,14 +39,28 @@ const SearchPlace = () => {
                 .finally(() => {
                     setLoading(false);
                 });
-        } else {
-            setShowDropdown(false);
-        }
+        // } else {
+        //     setShowDropdown(false);
+        // }
     };
 
     const handleSelectLocation = (location) => {
-        setSearchTerm(`${location.name}, ${location.adminName1}, ${location.countryName}`);
-        setShowDropdown(false);
+        router.push("/create-trip/SelectTraveler")
+        axios.get(`https://api.openverse.engineering/v1/images?q=${location.name}`)
+        .then((res) => {
+            setSearchTerm(`${location.name}, ${location.adminName1}, ${location.countryName}`);
+            setTripData({
+                locationInfo:{
+                    name: location.name,
+                    coordinates: {latitude: location.lat, longitude: location.lng},
+                    photoRef: res.data?.results?.[0]?.url,
+                }
+            })
+            setShowDropdown(false);
+        })
+        .catch((err)=>{
+            console.log(err,"error")
+        })
     };
 
     return (
@@ -53,7 +69,7 @@ const SearchPlace = () => {
                 <View style={{ padding: 25, paddingTop: 75, backgroundColor: Colors.WHITE, height: "100%" }}>
                     <View style={styles.inputContainer}>
                         <TextInput
-                            placeholder='Search Location'
+                            placeholder='Search Place'
                             style={styles.input}
                             value={searchTerm}
                             onChangeText={(e) => getLocation(e)}
