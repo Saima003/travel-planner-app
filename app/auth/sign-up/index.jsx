@@ -31,7 +31,7 @@ const SignUp = () => {
       signInWithCredential(auth, credential)
         .then((userCredentials) => {
           const user = userCredentials.user;
-          console.log('Google Sign-In success:', user);
+          // console.log('Google Sign-In success:', user);
           // Navigate to your app's main screen after successful login
         })
         .catch((error) => {
