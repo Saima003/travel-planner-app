@@ -2,9 +2,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Colors } from '../../constants/Colors'
 
-const OptionCard = ({option, SelectedTraveler}) => {
+const OptionCard = ({option, selectedOption}) => {
   return (
-    <View style={[{padding:25, display:"flex", flexDirection:"row", justifyContent:"space-between", backgroundColor:Colors.LIGHT_GRAY, borderRadius:15 }, SelectedTraveler?.id === option?.id && {borderWidth:3}]}>
+    <View style={[{padding:25, display:"flex", flexDirection:"row", justifyContent:"space-between", backgroundColor:Colors.LIGHT_GRAY, borderRadius:15 }, selectedOption?.id === option?.id && {borderWidth:3}]}>
       <View>
         <Text style={{fontFamily:"outfit-bold", fontSize:20}}>
             {option?.title}

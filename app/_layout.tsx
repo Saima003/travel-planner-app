@@ -2,6 +2,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import {CreateTripContext} from "./../context/CreateTripContext"
 import { useState } from "react";
+
 export default function RootLayout() {
   useFonts({
     "outfit": require("./../assets/fonts/Outfit-Regular.ttf"),

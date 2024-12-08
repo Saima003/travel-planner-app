@@ -14,7 +14,6 @@ const SearchPlace = () => {
     const [loading, setLoading] = useState(false);
     const {tripData, setTripData}= useContext(CreateTripContext)
     const router = useRouter()
-    console.log(tripData,"tripData")
     useEffect(() => {
         navigation.setOptions({
             headerShown: true,
@@ -25,7 +24,7 @@ const SearchPlace = () => {
 
     const getLocation = (e) => {
         setSearchTerm(e);
-        // if (e.length > 3) {
+        if (e.length > 3) {
             setLoading(true);
             axios.get(`${process.env.EXPO_PUBLIC_AUTOCOMPLETE_API}=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
                 .then((res) => {
@@ -39,9 +38,9 @@ const SearchPlace = () => {
                 .finally(() => {
                     setLoading(false);
                 });
-        // } else {
-        //     setShowDropdown(false);
-        // }
+        } else {
+            setShowDropdown(false);
+        }
     };
 
     const handleSelectLocation = (location) => {
