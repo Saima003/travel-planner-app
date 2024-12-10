@@ -47,10 +47,11 @@ const SearchPlace = () => {
         router.push("/create-trip/SelectTraveler")
         axios.get(`https://api.openverse.engineering/v1/images?q=${location.name}`)
         .then((res) => {
-            setSearchTerm(`${location.name}, ${location.adminName1}, ${location.countryName}`);
+            let searchedItem = `${location.name}, ${location.adminName1}, ${location.countryName}`
+            setSearchTerm(searchedItem);
             setTripData({
                 locationInfo:{
-                    name: location.name,
+                    name: searchedItem,
                     coordinates: {latitude: location.lat, longitude: location.lng},
                     photoRef: res.data?.results?.[0]?.url,
                 }
