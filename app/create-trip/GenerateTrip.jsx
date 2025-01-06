@@ -1,13 +1,52 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from '../../constants/Colors';
 import { CreateTripContext } from '../../context/CreateTripContext';
-
+import { AI_PROMPT } from '../../constants/Options';
+import { chatSession } from '../../assets/configs/AiModal';
+import {auth, db} from "./../../assets/configs/FirebaseConfig"
+import { collection, doc, setDoc } from "firebase/firestore"; 
+import { useRouter } from 'expo-router';
 const GenerateTrip = () => {
   const {tripData, setTripData}= useContext(CreateTripContext)
-    
-  return (
+  const [loader, setLoader] = useState(false)
+  const user = auth.currentUser;
+  const router = useRouter()
+  useEffect(()=>{
+    GenerateAiTrip()
+  },[tripData, user, db])
+  
+
+const GenerateAiTrip = async () => {
+    setLoader(true)
+    const FINAL_PROMPT = AI_PROMPT
+    .replace('{location}', tripData?.locationInfo?.name)
+    .replace('{totalDays}', tripData?.totalNoofDays)
+    .replace('{totalNights}', tripData?.totalNoofDays-1)
+    .replace('{travellers}', tripData?.travelerCount?.title)
+    .replace('{budget}', tripData?.budget)
+    .replace('{totalDays}', tripData?.totalNoofDays)
+    .replace('{totalNights}', tripData?.totalNoofDays-1)
+  try {
+    const result = await chatSession.sendMessage(FINAL_PROMPT);
+    const responseText = result.response.text();
+    const docID = Date.now().toString();
+    console.log(user, "user"); // Ensure user is defined
+    await setDoc(doc(db, "SZAK-AITravel", docID), {
+      userEmail: user.email,
+      tripData: JSON.parse(responseText),
+    });
+    console.log("Document successfully written!");
+    // if(finalResult){
+      //    router.push("(tabs)/MyTrip");
+      //}
+  } catch (error) {
+    console.error("Error writing document:", error);
+  }
+};
+
+return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1 }}>
       <View style={{padding: 30 ,paddingTop:50, height:"100%", backgroundColor:Colors.WHITE}}>

@@ -19,7 +19,6 @@ const SelectTraveler = () => {
       headerTitle: ""
     })
   }, [])
-  console.log(tripData,SelectedTraveler,"here it is")
   useEffect(()=>{
     setTripData({...tripData,
       travelerCount : SelectedTraveler

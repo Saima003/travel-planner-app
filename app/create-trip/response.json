@@ -1,0 +1,216 @@
+{
+    "trip_details": {
+      "location": "Saimaa Region, Finland",
+      "duration": "4 Days, 3 Nights",
+      "traveler_type": "Solo",
+      "budget": "Moderate",
+      "currency": "EUR",
+      "approx_flight_estimation": {
+        "source": "Your Departure City",
+        "destination": "Lappeenranta Airport (LPP) or Helsinki-Vantaa Airport (HEL) (followed by a train or bus to Saimaa Region)",
+        "approx_price": "€300-€600 (Round Trip, Subject to Change)",
+        "booking_url": "https://www.skyscanner.com",
+        "note": "Flight prices vary depending on departure city, time of booking, and season. Flying to Helsinki may offer more flight options, but require further transfer to Saimaa region. Please search for your own city for the estimated price."
+      }
+    },
+    "hotel_options": [
+      {
+        "hotel_name": "Original Sokos Hotel Lappee",
+        "address": "Brahenkatu 1, 53100 Lappeenranta, Finland",
+        "price_per_night": "€100-€150",
+        "image_url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/96/62/01/original-sokos-hotel.jpg?w=900&h=600&s=1",
+        "geo_coordinates": {
+          "latitude": 61.0582,
+          "longitude": 28.1888
+        },
+        "rating": "4.2/5",
+        "description": "A comfortable hotel in the center of Lappeenranta, with good access to local sights and amenities. Modern with good services.",
+        "amenities": [
+          "Free Wifi",
+          "Restaurant",
+          "Bar",
+          "Sauna"
+        ]
+      },
+      {
+        "hotel_name": "Hotel Scandic Patria",
+        "address": "Kauppakatu 21, 53100 Lappeenranta, Finland",
+        "price_per_night": "€90-€140",
+        "image_url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/7f/3f/f2/hotel-scandic-patria.jpg?w=900&h=600&s=1",
+        "geo_coordinates": {
+          "latitude": 61.0583,
+          "longitude": 28.1921
+        },
+        "rating": "4.0/5",
+        "description": "A well-maintained hotel, close to shops and lake,  Ideal for both relaxation and city explorations",
+        "amenities": [
+          "Free Wifi",
+          "Restaurant",
+          "Bar",
+          "Fitness center"
+        ]
+      },
+      {
+        "hotel_name": "Holiday Club Saimaa",
+        "address": "Rauhanpelto 1, 55320 Rauha, Finland",
+        "price_per_night": "€120-€180",
+        "image_url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/5d/b6/3d/holiday-club-saimaa.jpg?w=900&h=600&s=1",
+        "geo_coordinates": {
+          "latitude": 61.1602,
+          "longitude": 28.6725
+        },
+        "rating": "4.3/5",
+        "description": "A resort style hotel located in beautiful nature area. Offers spa and other activities. bit far from city",
+        "amenities": [
+          "Free Wifi",
+          "Restaurant",
+          "Spa",
+          "Swimming pool",
+          "Lake View"
+        ]
+      }
+    ],
+    "itinerary": {
+      "day_1": {
+        "theme": "Arrival and Lappeenranta Exploration",
+        "best_time_to_visit": "May to September (Warm weather, long daylight hours)",
+        "plan": [
+          {
+            "place_name": "Lappeenranta Fortress",
+            "place_details": "A historic fortress with museums, cafes, and beautiful views of Lake Saimaa. Explore the old town area within the fortress walls.",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Lappeenranta_Fortress_and_Lake_Saimaa_view_from_above.jpg/1280px-Lappeenranta_Fortress_and_Lake_Saimaa_view_from_above.jpg",
+            "geo_coordinates": {
+              "latitude": 61.0599,
+              "longitude": 28.1919
+            },
+            "ticket_pricing": "Free (some museums have entrance fees ~ €5-€10)",
+            "travel_time_from_hotel": "5-15 minutes walking from most Lappeenranta hotels",     
+            "best_time_to_visit_here": "Morning to afternoon"
+          },
+          {
+            "place_name": "Saimaa Canal Museum",
+            "place_details": "Learn about the history of the Saimaa Canal and its impact on the region's development. An interesting place for history and engineering enthusiasts.",
+            "image_url": "https://www.museot.fi/uploads/2020/12/06b75a2c-saimaan_kanavamuseo.jpg",
+            "geo_coordinates": {
+              "latitude": 61.0617,
+              "longitude": 28.1849
+            },
+            "ticket_pricing": "€5-€10",
+            "travel_time_from_lappeenranta_fortress": "5 minutes by walk",
+            "best_time_to_visit_here": "Afternoon"
+          },
+          {
+            "place_name": "Lappeenranta Harbour",
+            "place_details": "A picturesque harbor with boats, cafes, and restaurants. Enjoy views of Lake Saimaa and enjoy the evening.",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lappeenranta_harbor_2019.jpg/1280px-Lappeenranta_harbor_2019.jpg",
+            "geo_coordinates": {
+              "latitude": 61.0606,
+              "longitude": 28.1826
+            },
+            "ticket_pricing": "Free",
+            "travel_time_from_saimaa_canal_museum": "5 minutes by walk",
+            "best_time_to_visit_here": "Late afternoon and evening"
+          }
+        ]
+      },
+      "day_2": {
+        "theme": "Lake Saimaa Cruise and Nature",
+        "best_time_to_visit": "May to September (Warm weather, long daylight hours)",
+        "plan": [
+          {
+            "place_name": "Lake Saimaa Cruise",
+            "place_details": "Take a scenic cruise on Lake Saimaa, enjoying the beautiful archipelago and possibly spotting the Saimaa ringed seal. Several cruise options available.",       
+            "image_url": "https://www.gosaimaa.com/sites/default/files/styles/panoramic/public/field/image/saimaa_cruise_5.jpg?itok=05w0v4I3",
+            "geo_coordinates": {
+              "latitude": 61.0590,
+              "longitude": 28.1826
+            },
+            "ticket_pricing": "€40 - €80 (depending on the cruise duration)",
+            "travel_time_from_hotel": "5-15 minutes by walk to the harbor",
+            "best_time_to_visit_here": "Morning or afternoon."
+          },
+          {
+            "place_name": "Astuvansalmi Rock Paintings",
+            "place_details": "Visit ancient rock paintings near Ristiina, a significant archaeological site in Finland. A journey into pre-historic times",
+            "image_url": "https://www.visitfinland.com/wp-content/uploads/2022/02/Astuvansalmen_kalliopiirrokset_Kaisa_Sirvio_02.jpg",
+            "geo_coordinates": {
+              "latitude": 61.7146,
+              "longitude": 27.2724
+            },
+            "ticket_pricing": "Free (Transportation may incur cost ~ €20-€30 by taxi/bus)",     
+            "travel_time_from_saimaa_cruise": "1.5 - 2.5 hours by bus/taxi",
+            "best_time_to_visit_here": "Afternoon"
+          }
+        ]
+      },
+      "day_3": {
+        "theme": "Imatra and Waterfalls",
+        "best_time_to_visit": "May to September (Warm weather, long daylight hours)",
+        "plan": [
+          {
+            "place_name": "Imatrankoski Rapids",
+            "place_details": "Witness the controlled release of water through the Imatrankoski dam. A spectacle that shows the power and beauty of the water.",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Imatrankoski_01.jpg/1280px-Imatrankoski_01.jpg",
+            "geo_coordinates": {
+              "latitude": 61.1940,
+              "longitude": 28.7704
+            },
+            "ticket_pricing": "Free",
+            "travel_time_from_hotel": "45-60 mins by bus/taxi from Lappeenranta",
+            "best_time_to_visit_here": "Check timings for water release schedules; Usually in the late afternoon"
+          },
+          {
+            "place_name": "Valtionhotelli (State Hotel)",
+            "place_details": "Explore the historic architecture of this iconic hotel which has a rich history and striking views of the rapids.",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Valtionhotelli_Imatra_2016.jpg/1280px-Valtionhotelli_Imatra_2016.jpg",
+            "geo_coordinates": {
+              "latitude": 61.1949,
+              "longitude": 28.7684
+            },
+            "ticket_pricing": "Free",
+            "travel_time_from_imatrankoski_rapids": "5 minutes by walk",
+            "best_time_to_visit_here": "Afternoon"
+          },
+          {
+            "place_name": "Kruununpuisto Park",
+            "place_details": "A beautiful park around Imatrankoski Rapids. Walk around the park and enjoy the tranquility of Finnish nature.",
+            "image_url": "https://www.imatra.fi/sites/default/files/styles/image_style_large/public/2019-08/kruununpuisto_puistokukkia_2019.jpg?itok=h-d4tZtW",
+            "geo_coordinates": {
+              "latitude": 61.1911,
+              "longitude": 28.7659
+            },
+            "ticket_pricing": "Free",
+            "travel_time_from_valtionhotelli": "5 minutes by walk",
+            "best_time_to_visit_here": "Afternoon or evening"
+          }
+        ]
+      },
+      "day_4": {
+        "theme": "Departure",
+        "best_time_to_visit": "Anytime",
+        "plan": [
+          {
+            "place_name": "Lappeenranta Airport (LPP) or Helsinki-Vantaa Airport (HEL)",        
+            "place_details": "Travel to the airport for your departure flight.",
+            "image_url": "https://www.finavia.fi/sites/default/files/styles/large/public/field/image/lappeenranta_ilmailukuva_0.jpg?itok=N-mX_hFq",
+            "geo_coordinates": {
+              "latitude": 61.0445,
+              "longitude": 28.1584
+            },
+            "ticket_pricing": "Free (Transportation cost may apply)",
+            "travel_time_from_hotel": "15 -30 mins from Lappeenranta, 2.5 -3 hours from Helsinki Airport",
+            "best_time_to_visit_here": "As per your flight timing"
+          }
+        ]
+      }
+    },
+    "notes": [
+      "Consider purchasing a travel pass for public transportation.",
+      "Book accommodations and tours in advance, especially during peak season.",
+      "Pack for all types of weather, as conditions can be unpredictable.",
+      "Learn a few basic Finnish phrases, though English is widely spoken.",
+      "Try local Finnish food, such as Karjalanpiirakka and salmon soup.",
+      "Rent a car if you would like more flexibility to travel, especially for visiting areas outside the cities",
+      "Be prepared for the possibility of mosquitos during the summer months."
+    ]
+  }
