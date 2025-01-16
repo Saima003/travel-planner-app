@@ -32,15 +32,20 @@ const GenerateAiTrip = async () => {
     const result = await chatSession.sendMessage(FINAL_PROMPT);
     const responseText = result.response.text();
     const docID = Date.now().toString();
-    console.log(user, "user"); // Ensure user is defined
+    const formattedTripData = {
+      ...tripData,
+      startDate: tripData.startDate.toISOString(),
+      endDate: tripData.endDate.toISOString(),
+    };
+
     await setDoc(doc(db, "SZAK-AITravel", docID), {
       userEmail: user.email,
-      tripData: JSON.parse(responseText),
+      tripPlan: JSON.parse(responseText),
+      tripData: formattedTripData,
+      docID:docID
     });
     console.log("Document successfully written!");
-    // if(finalResult){
-      //    router.push("(tabs)/MyTrip");
-      //}
+         router.push("(tabs)/MyTrip");
   } catch (error) {
     console.error("Error writing document:", error);
   }

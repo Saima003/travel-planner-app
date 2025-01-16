@@ -11,7 +11,6 @@ const ReviewTrip = () => {
     const navigation = useNavigation()
     const router = useRouter()
   const {tripData, setTripData}= useContext(CreateTripContext)
-    console.log(tripData,"tripData")
     useEffect(()=>{
         navigation.setOptions({
             headerShown:true,

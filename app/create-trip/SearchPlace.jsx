@@ -24,7 +24,7 @@ const SearchPlace = () => {
 
     const getLocation = (e) => {
         setSearchTerm(e);
-        if (e.length > 3) {
+        if (e.length >= 3) {
             setLoading(true);
             axios.get(`${process.env.EXPO_PUBLIC_AUTOCOMPLETE_API}=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
                 .then((res) => {
@@ -50,6 +50,7 @@ const SearchPlace = () => {
             let searchedItem = `${location.name}, ${location.adminName1}, ${location.countryName}`
             setSearchTerm(searchedItem);
             setTripData({
+                ...tripData,
                 locationInfo:{
                     name: searchedItem,
                     coordinates: {latitude: location.lat, longitude: location.lng},
