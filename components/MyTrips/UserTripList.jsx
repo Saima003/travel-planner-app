@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
 const UserTripList = ({userTrips}) => {
-  console.log(userTrips,"userTrips")
   return (
     <View>
       <View style={{marginTop:20}}>

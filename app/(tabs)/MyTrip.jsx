@@ -24,17 +24,19 @@ const getMyTrips = async () => {
     );
 
     const querySnapshot = await getDocs(q);
+
     if (querySnapshot.empty) {
-      console.log("No matching documents.");
       setLoading(false);
       return;
     }
 
+    let allTrips = [];
     querySnapshot.forEach((doc) => {
-      const docData = doc.data(); // Fetch document data
-      console.log("Fetched Document:", JSON.stringify(docData, null, 2)); // Log the data structure
+      const docData = doc.data();
+      allTrips.push(docData);
     });
-    
+    const structuredData = JSON.stringify(allTrips, null, 2)
+    setUserTrips(structuredData)
     setLoading(false);
   } catch (error) {
     console.error("Error fetching documents:", error);

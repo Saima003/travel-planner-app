@@ -18,6 +18,12 @@ const GenerateTrip = () => {
   },[tripData, user, db])
   
 
+  const cleanObject = (obj) => {
+    return Object.fromEntries(
+      Object.entries(obj).filter(([_, value]) => value !== undefined)
+    );
+  };
+
 const GenerateAiTrip = async () => {
     setLoader(true)
     const FINAL_PROMPT = AI_PROMPT
@@ -32,8 +38,9 @@ const GenerateAiTrip = async () => {
     const result = await chatSession.sendMessage(FINAL_PROMPT);
     const responseText = result.response.text();
     const docID = Date.now().toString();
-    const formattedTripData = {
+    const cleanedTripData = {
       ...tripData,
+      locationInfo: cleanObject(tripData.locationInfo), // Clean nested objects
       startDate: tripData.startDate.toISOString(),
       endDate: tripData.endDate.toISOString(),
     };
@@ -41,7 +48,7 @@ const GenerateAiTrip = async () => {
     await setDoc(doc(db, "SZAK-AITravel", docID), {
       userEmail: user.email,
       tripPlan: JSON.parse(responseText),
-      tripData: formattedTripData,
+      tripData: cleanedTripData,
       docID:docID
     });
     console.log("Document successfully written!");
