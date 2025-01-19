@@ -20,7 +20,7 @@ const getMyTrips = async () => {
   try {
     const q = query(
       collection(db, "SZAK-AITravel"),
-      where("userEmail", "==", user?.email) // Replace user?.email with the exact value if needed
+      where("userEmail", "==", user?.email)
     );
 
     const querySnapshot = await getDocs(q);
@@ -35,8 +35,7 @@ const getMyTrips = async () => {
       const docData = doc.data();
       allTrips.push(docData);
     });
-    const structuredData = JSON.stringify(allTrips, null, 2)
-    setUserTrips(structuredData)
+    setUserTrips(allTrips)
     setLoading(false);
   } catch (error) {
     console.error("Error fetching documents:", error);

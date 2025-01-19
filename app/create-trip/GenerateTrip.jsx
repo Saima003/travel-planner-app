@@ -40,7 +40,7 @@ const GenerateAiTrip = async () => {
     const docID = Date.now().toString();
     const cleanedTripData = {
       ...tripData,
-      locationInfo: cleanObject(tripData.locationInfo), // Clean nested objects
+      locationInfo: cleanObject(tripData.locationInfo),
       startDate: tripData.startDate.toISOString(),
       endDate: tripData.endDate.toISOString(),
     };
