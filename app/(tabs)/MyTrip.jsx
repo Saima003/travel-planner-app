@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react';
 import { Colors } from '../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -44,7 +44,7 @@ const getMyTrips = async () => {
 };
 
   return (
-    <View style={{ backgroundColor: Colors.WHITE, height: "100%", padding: 20 }}>
+    <ScrollView style={{ backgroundColor: Colors.WHITE, height: "100%", padding: 20 }}>
       <View style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "space-between" }}>
         <Text style={{ fontFamily: "outfit-bold", fontSize: 35 }}>MyTrip</Text>
         <Ionicons name="add-circle" size={50} color="black" />
@@ -53,7 +53,7 @@ const getMyTrips = async () => {
         loading === false && userTrips.length === 0 ?
           <StartNewTrip /> : <UserTripList userTrips={userTrips}/>
       }
-    </View>
+    </ScrollView>
   )
 }
 

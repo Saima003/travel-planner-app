@@ -3,7 +3,6 @@ import React, { useContext, useEffect } from 'react'
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation, useRouter } from 'expo-router';
 import { Colors } from '../../constants/Colors';
-import Entypo from '@expo/vector-icons/Entypo';
 import { CreateTripContext } from '../../context/CreateTripContext';
 import moment from "moment"
 
