@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams, useNavigation } from 'expo-router'
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from '../../constants/Colors';
+import moment from "moment"
+import FlightInfo from '../../components/TripPlan/FlightInfo';
 
 const TripDetails = () => {
     const navigation = useNavigation()
@@ -17,7 +19,7 @@ const TripDetails = () => {
         })
         setTrip(JSON.parse(tripData))
     }, [tripData])
-    console.log(trip?.tripData?.locationInfo?.photoRef)
+
     return (
         <SafeAreaProvider>
             <SafeAreaView style={{ flex: 1 }}>
@@ -27,8 +29,14 @@ const TripDetails = () => {
                         style={{ width: "100%", height: 240, objectFit: "cover", borderRadius: 15 }}
                         resizeMode="contain"
                     />
-                    <View style={{ padding: 15, backgroundColor: Colors.WHITE, height: "100%", borderTopLeftRadius: 40, marginTop: -40, borderTopRightRadius: 40 }}>
-                        <Text>{trip?.tripData?.locationInfo?.name}</Text>
+                    <View style={{ padding: 15, backgroundColor: Colors.WHITE, height: "100%" }}>
+                        <Text style={{ fontSize: 20, fontFamily: "outfit-bold" }}>{trip?.tripData?.locationInfo?.name}</Text>
+                        <View style={{ display: "flex", flexDirection: "row", gap: 5 }}>
+                            <Text style={{ fontFamily: "outfit-medium", fontSize: 17, color: Colors.GRAY }}>{moment(trip?.tripData?.startDate).format("DD MMM YYYY")}</Text>
+                            <Text style={{ fontFamily: "outfit-medium", fontSize: 17, color: Colors.GRAY }}> - {moment(trip?.tripData?.endDate).format("DD MMM YYYY")}</Text>
+                        </View>
+                        <Text style={{ fontFamily: "outfit-medium", fontSize: 17, color: Colors.GRAY }}>😉 {trip?.tripData?.travelerCount?.title}</Text>
+                        <FlightInfo flightInfo={trip?.tripPlan?.trip_details}/>
                     </View>
                 </View>
             </SafeAreaView>
