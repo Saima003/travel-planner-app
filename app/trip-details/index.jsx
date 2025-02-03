@@ -5,6 +5,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from '../../constants/Colors';
 import moment from "moment"
 import FlightInfo from '../../components/TripPlan/FlightInfo';
+import HotelInfo from '../../components/TripPlan/HotelInfo';
 
 const TripDetails = () => {
     const navigation = useNavigation()
@@ -37,6 +38,7 @@ const TripDetails = () => {
                         </View>
                         <Text style={{ fontFamily: "outfit-medium", fontSize: 17, color: Colors.GRAY }}>😉 {trip?.tripData?.travelerCount?.title}</Text>
                         <FlightInfo flightInfo={trip?.tripPlan?.trip_details}/>
+                        <HotelInfo hotelInfo={trip?.tripPlan?.hotel_options}/>
                     </View>
                 </View>
             </SafeAreaView>
