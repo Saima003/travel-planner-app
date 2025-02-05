@@ -14,11 +14,25 @@
   "jest": {
     "preset": "jest-expo"
   },
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "@google/generative-ai",
+          "date-fns",
+          "firebase",
+          "install",
+          "moment",
+          "openai"
+        ]
+      }
+    }
+  },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@google/generative-ai": "^0.21.0",
     "@gorhom/bottom-sheet": "^5.0.5",
-    "@react-native-async-storage/async-storage": "^1.23.1",
+    "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/native": "^7.0.14",
     "axios": "^1.7.7",
     "date-fns": "^4.1.0",
@@ -27,7 +41,6 @@
     "expo-constants": "~17.0.5",
     "expo-font": "~13.0.3",
     "expo-linking": "~7.0.5",
-    "expo-random": "^14.0.1",
     "expo-router": "~4.0.17",
     "expo-splash-screen": "~0.29.21",
     "expo-status-bar": "~2.0.1",
