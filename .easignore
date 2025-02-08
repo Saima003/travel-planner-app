@@ -6,12 +6,17 @@ web-build/
 dist/
 *.log
 *.lock
+yarn-error.log
+npm-debug.log
 
 # Ignore Android/iOS build files
 android/.gradle/
 android/app/build/
+android/.cxx/
 ios/build/
 ios/Pods/
+ios/.symlinks/
+ios/.expo/
 
 # Ignore local environment files
 .env
