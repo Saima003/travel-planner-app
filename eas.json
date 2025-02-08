@@ -5,14 +5,47 @@
   },
   "build": {
     "development": {
-      "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_KEY": "AIzaSyCuFIm5q_2KV8ch53kFWQJca18aR0IMm7Q",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "travel-app-75e8e.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "travel-app-75e8e",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "travel-app-75e8e.firebasestorage.appt",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "854026705022",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:854026705022:web:bec18dc2cd74b14405e02f",
+        "EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-7GMSV65ERB",
+        "EXPO_PUBLIC_AUTOCOMPLETE_API=https":"api.geonames.org/searchJSON?q=New",
+        "EXPO_PUBLIC_GEMINI_KEY":"AIzaSyDmJFXX_91NrQ1Q8nLfu4ZqtrKqXquRHHU"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_KEY": "AIzaSyCuFIm5q_2KV8ch53kFWQJca18aR0IMm7Q",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "travel-app-75e8e.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "travel-app-75e8e",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "travel-app-75e8e.firebasestorage.appt",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "854026705022",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:854026705022:web:bec18dc2cd74b14405e02f",
+        "EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-7GMSV65ERB",
+        "EXPO_PUBLIC_AUTOCOMPLETE_API=https":"api.geonames.org/searchJSON?q=New",
+        "EXPO_PUBLIC_GEMINI_KEY":"AIzaSyDmJFXX_91NrQ1Q8nLfu4ZqtrKqXquRHHU"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "distribution": "store",
+      "env": {
+        "EXPO_PUBLIC_API_KEY": "AIzaSyCuFIm5q_2KV8ch53kFWQJca18aR0IMm7Q",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "travel-app-75e8e.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "travel-app-75e8e",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "travel-app-75e8e.firebasestorage.appt",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "854026705022",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:854026705022:web:bec18dc2cd74b14405e02f",
+        "EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-7GMSV65ERB",
+        "EXPO_PUBLIC_AUTOCOMPLETE_API=https":"api.geonames.org/searchJSON?q=New",
+        "EXPO_PUBLIC_GEMINI_KEY":"AIzaSyDmJFXX_91NrQ1Q8nLfu4ZqtrKqXquRHHU"
+      }
     }
   },
   "submit": {

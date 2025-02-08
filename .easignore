@@ -33,3 +33,6 @@ tmp/
 .vscode/
 .idea/
 *.iml
+
+# Ignore EAS config files (eas.json can be tracked separately as per your need)
+# eas.json
