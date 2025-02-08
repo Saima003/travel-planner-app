@@ -1,0 +1,30 @@
+# Ignore unnecessary dependencies and generated files
+node_modules/
+.expo/
+.expo-shared/
+web-build/
+dist/
+*.log
+*.lock
+
+# Ignore Android/iOS build files
+android/.gradle/
+android/app/build/
+ios/build/
+ios/Pods/
+
+# Ignore local environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Ignore test and cache files
+__tests__/
+coverage/
+tmp/
+.cache/
+.vscode/
+.idea/
+*.iml
