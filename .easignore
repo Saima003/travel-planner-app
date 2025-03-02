@@ -9,6 +9,9 @@ dist/
 yarn-error.log
 npm-debug.log
 
+/android
+/ios
+
 # Ignore Android/iOS build files
 android/.gradle/
 android/app/build/
