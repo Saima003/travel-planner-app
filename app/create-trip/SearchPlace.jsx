@@ -26,7 +26,7 @@ const SearchPlace = () => {
         setSearchTerm(e);
         if (e.length >= 3) {
             setLoading(true);
-            axios.get(`${process.env.EXPO_PUBLIC_AUTOCOMPLETE_API}=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
+            axios.get(`http://api.geonames.org/searchJSON?q=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
                 .then((res) => {
                     setLocationResults(res.data.geonames || []);
                     setShowDropdown(true);

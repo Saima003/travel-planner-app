@@ -1,4 +1,4 @@
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react';
 import { Colors } from '../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -6,11 +6,12 @@ import StartNewTrip from '../../components/MyTrips/StartNewTrip';
 import { auth, db } from "./../../assets/configs/FirebaseConfig"
 import { query, collection, where, getDocs } from "firebase/firestore";
 import UserTripList from '../../components/MyTrips/UserTripList';
+import { useRouter } from 'expo-router';
 const MyTrip = () => {
   const [userTrips, setUserTrips] = useState([]);
   const [loading, setLoading] = useState(false)
   const user = auth.currentUser
-
+  const route = useRouter()
   useEffect(() => {
     user && getMyTrips()
   }, [user])
@@ -47,7 +48,9 @@ const getMyTrips = async () => {
     <ScrollView style={{ backgroundColor: Colors.WHITE, height: "100%", padding: 20 }}>
       <View style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "space-between" }}>
         <Text style={{ fontFamily: "outfit-bold", fontSize: 35 }}>MyTrip</Text>
+        <TouchableOpacity onPress={() => route.push("/create-trip/SearchPlace")}>
         <Ionicons name="add-circle" size={50} color="black" />
+        </TouchableOpacity>
       </View>
       {loading  ? <ActivityIndicator height="100%" size={"large"} color={Colors.PRIMARY} /> :
         loading === false && userTrips.length === 0 ?
