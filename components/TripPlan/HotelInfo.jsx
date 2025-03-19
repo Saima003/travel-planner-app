@@ -1,5 +1,6 @@
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import HotelCard from './HotelCard'
 
 const HotelInfo = ({ hotelInfo }) => {
     return (
@@ -18,8 +19,8 @@ const HotelInfo = ({ hotelInfo }) => {
                                 resizeMode="cover" // Use "cover" instead of "contain" for better fit
                             />
                         )} */}
-
-                        <Text>{item?.hotel_name}</Text>
+                            <HotelCard hotelDetail={item}/>
+                        {/* <Text>{item?.hotel_name}</Text> */}
                     </View>
                 )}
             />
