@@ -2,10 +2,10 @@ import { Image, StyleSheet, Text, View, TouchableOpacity, Linking, ActivityIndic
 import React, { useEffect, useState } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-
 const HotelCard = ({ hotelDetail }) => {
   const [hotelImage, setHotelImage] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
 
   const fetchSceneryImage = async () => {
     const url = `https://api.unsplash.com/photos/random?query=scenery&client_id=${process.env.EXPO_PUBLIC_UNSPLASH_ACCESS_KEY}`;
@@ -38,7 +38,7 @@ const HotelCard = ({ hotelDetail }) => {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${hotelDetail.geo_coordinates?.latitude},${hotelDetail.geo_coordinates?.longitude}`;
 
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity onPress={() => setShowDetails(!showDetails)} style={styles.cardContainer}>
       <View style={styles.imageContainer}>
         {loading ? (
           <ActivityIndicator size="large" color="#888" style={styles.loader} />
@@ -49,27 +49,31 @@ const HotelCard = ({ hotelDetail }) => {
 
       <View style={styles.detailsContainer}>
         <View style={styles.rowSpaceBetween}>
-          <Text style={styles.hotelName}>{hotelDetail.hotel_name || "Unknown Hotel"}</Text>
+          <View style={styles.row}>
+            <Text style={styles.hotelName}>{hotelDetail.hotel_name || "Unknown Hotel"}</Text>
+            <TouchableOpacity onPress={() => Linking.openURL(mapsUrl)}>
+              <Text style={styles.viewOnMap}>(View on Map)</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.row}>
             <Ionicons name="star" size={18} color="gold" />
             <Text style={styles.ratingText}>{hotelDetail.rating || "N/A"}</Text>
           </View>
         </View>
 
-        {hotelDetail.address && (
-          <TouchableOpacity onPress={() => Linking.openURL(mapsUrl)}>
-            <Text style={styles.address}>{hotelDetail.address} 📍</Text>
-          </TouchableOpacity>
-        )}
-
-        <Text style={styles.description}>{hotelDetail.description || "No description available"}</Text>
         <Text style={styles.price}>{hotelDetail.price_per_night ? `${hotelDetail.price_per_night} per night` : "Price not available"}</Text>
-        <Text style={styles.amenitiesTitle}>Amenities:</Text>
-        <Text style={styles.amenities}>
-          {hotelDetail.amenities?.length > 0 ? hotelDetail.amenities.join(" • ") : "No amenities listed"}
-        </Text>
+
+        {showDetails && (
+          <>
+            <Text style={styles.description}>{hotelDetail.description || "No description available"}</Text>
+            <Text style={styles.amenitiesTitle}>Amenities:</Text>
+            <Text style={styles.amenities}>
+              {hotelDetail.amenities?.length > 0 ? hotelDetail.amenities.join(" • ") : "No amenities listed"}
+            </Text>
+          </>
+        )}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -110,27 +114,27 @@ const styles = StyleSheet.create({
   },
   rowSpaceBetween: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
-  },
-  hotelName: {
-    fontSize: 16,
-    fontWeight: "bold",
+    justifyContent: "space-between",
   },
   row: {
     flexDirection: "row",
     alignItems: "center",
   },
+  hotelName: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginRight: 5,
+  },
+  viewOnMap: {
+    fontSize: 14,
+    color: "blue",
+    textDecorationLine: "underline",
+  },
   ratingText: {
     marginLeft: 5,
     fontSize: 14,
     fontWeight: "600",
-  },
-  address: {
-    fontSize: 12,
-    color: "blue",
-    textDecorationLine: "underline",
-    marginVertical: 5,
   },
   description: {
     fontSize: 14,
@@ -139,7 +143,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 14,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     marginVertical: 5,
   },
   amenitiesTitle: {
