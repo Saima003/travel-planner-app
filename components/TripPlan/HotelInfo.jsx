@@ -5,7 +5,7 @@ import HotelCard from './HotelCard'
 const HotelInfo = ({ hotelInfo }) => {
     return (
         <View style={{ marginTop: 20 }}>
-            <Text style={{ fontFamily: 'outfit-bold', fontSize: 17 }}>🏨 Hotel Recommendations</Text>
+            <Text style={{ fontFamily: 'outfit-bold', fontSize: 17, marginBottom:10 }}>🏨 Hotel Recommendations</Text>
             <FlatList
                 data={hotelInfo}
                 keyExtractor={(item, index) => index.toString()} // Ensure unique keys
