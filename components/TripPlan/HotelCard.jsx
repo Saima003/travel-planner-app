@@ -2,15 +2,13 @@ import { Image, StyleSheet, Text, View, TouchableOpacity, Linking, ActivityIndic
 import React, { useEffect, useState } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-const UNSPLASH_ACCESS_KEY = ""; // Add your Unsplash API Key here
 
 const HotelCard = ({ hotelDetail }) => {
   const [hotelImage, setHotelImage] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch a random scenery image from Unsplash
   const fetchSceneryImage = async () => {
-    const url = `https://api.unsplash.com/photos/random?query=scenery&client_id=${UNSPLASH_ACCESS_KEY}`;
+    const url = `https://api.unsplash.com/photos/random?query=scenery&client_id=${process.env.EXPO_PUBLIC_UNSPLASH_ACCESS_KEY}`;
 
     try {
       const response = await fetch(url);
