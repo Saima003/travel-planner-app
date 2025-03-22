@@ -4,31 +4,32 @@ import HotelCard from './HotelCard'
 
 const HotelInfo = ({ hotelInfo }) => {
     return (
-        <View style={{ marginTop: 20 }}>
-            <Text style={{ fontFamily: 'outfit-bold', fontSize: 17, marginBottom:10 }}>🏨 Hotel Recommendations</Text>
+        <View style={styles.container}>
+            <Text style={styles.header}>🏨 Hotel Recommendations</Text>
             <FlatList
                 data={hotelInfo}
-                keyExtractor={(item, index) => index.toString()} // Ensure unique keys
-                renderItem={({ item, index }) => ( // Destructure `item` properly
-                    <View key={index}>
-                        {console.log(item, "item")}
-                        {/* {item?.image_url && ( // Ensure valid condition
-                            <Image
-                                source={{ uri: item.image_url }}
-                                style={{ width: "100%", height: 240, borderRadius: 15 }}
-                                resizeMode="cover" // Use "cover" instead of "contain" for better fit
-                            />
-                        )} */}
-                            <HotelCard hotelDetail={item}/>
-                        {/* <Text>{item?.hotel_name}</Text> */}
-                    </View>
-                )}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => <HotelCard hotelDetail={item} />}
+                contentContainerStyle={styles.listContent}
+                showsVerticalScrollIndicator={false}
             />
-
         </View>
     )
 }
 
 export default HotelInfo
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginTop: 20,
+    },
+    header: {
+        fontFamily: 'outfit-bold',
+        fontSize: 17,
+        marginBottom: 10,
+    },
+    listContent: {
+        paddingBottom: 20,
+    },
+})
