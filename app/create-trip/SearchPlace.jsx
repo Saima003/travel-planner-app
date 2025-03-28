@@ -22,18 +22,47 @@ const SearchPlace = () => {
         });
     }, []);
 
+    // const getLocation = (e) => {
+    //     setSearchTerm(e);
+    //     if (e.length >= 3) {
+    //         setLoading(true);
+    //             fetch(`https://secure.geonames.org/searchJSON?q=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`,{
+    //                 mode: 'no-cors'
+    //             })
+    //             .then((res) => {
+    //                 setLocationResults(res.data.geonames || []);
+    //                 setShowDropdown(true);
+    //                 alert(res.data.geonames,"res.data.geonames")
+    //             })
+    //             .catch((err) => {
+    //                 console.error(err, "error");
+    //                 setShowDropdown(false);
+    //                 alert(err,"err")
+    //             })
+    //             .finally(() => {
+    //                 setLoading(false);
+    //             });
+    //     } else {
+    //         setShowDropdown(false);
+    //     }
+    // };
+
     const getLocation = (e) => {
         setSearchTerm(e);
         if (e.length >= 3) {
             setLoading(true);
-            axios.get(`http://api.geonames.org/searchJSON?q=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
-                .then((res) => {
-                    setLocationResults(res.data.geonames || []);
+            console.log(process.env.EXPO_PUBLIC_GEONAMES_USER_NAME,"herea")
+            fetch(`https://secure.geonames.org/searchJSON?q=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
+                .then((res) => res.json())  // Convert response to JSON
+                .then((data) => {
+                    setLocationResults(data.geonames || []);
                     setShowDropdown(true);
+                    alert(JSON.stringify(data.geonames), "res.data.geonames");
                 })
                 .catch((err) => {
                     console.error(err, "error");
                     setShowDropdown(false);
+                    alert(err, "err");
                 })
                 .finally(() => {
                     setLoading(false);
@@ -41,7 +70,7 @@ const SearchPlace = () => {
         } else {
             setShowDropdown(false);
         }
-    };
+    };    
 
     const handleSelectLocation = (location) => {
         router.push("/create-trip/SelectTraveler")
