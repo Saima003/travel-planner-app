@@ -51,18 +51,15 @@ const SearchPlace = () => {
         setSearchTerm(e);
         if (e.length >= 3) {
             setLoading(true);
-            console.log(process.env.EXPO_PUBLIC_GEONAMES_USER_NAME,"herea")
             fetch(`https://secure.geonames.org/searchJSON?q=${e}&maxRows=20&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`)
-                .then((res) => res.json())  // Convert response to JSON
+                .then((res) => res.json())
                 .then((data) => {
                     setLocationResults(data.geonames || []);
                     setShowDropdown(true);
-                    alert(JSON.stringify(data.geonames), "res.data.geonames");
                 })
                 .catch((err) => {
                     console.error(err, "error");
                     setShowDropdown(false);
-                    alert(err, "err");
                 })
                 .finally(() => {
                     setLoading(false);
