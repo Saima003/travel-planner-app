@@ -28,7 +28,7 @@ const Discover = () => {
     try {
       const response = await fetch(
         `https:/secure.geonames.org/wikipediaSearchJSON?q=${country.countryName}&maxRows=10&username=${process.env.EXPO_PUBLIC_GEONAMES_USER_NAME}`
-      ); // Replace 'demo' with your GeoNames username
+      );
       const data = await response.json();
       setLocations(data.geonames || []);
     } catch (error) {
@@ -44,29 +44,32 @@ const Discover = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Discover</Text>
+      <Text style={styles.heading}>Discover Locations</Text>
       {loadingCountries ? (
         <ActivityIndicator size="large" color="#000" />
       ) : (
+        <View>
         <FlatList
           data={countries}
           keyExtractor={(item) => item.geonameId.toString()}
           horizontal
           renderItem={({ item }) => (
             <TouchableOpacity
-              style={styles.card}
-              onPress={() => {
-                setSelectedCountry(item);
-                fetchLocations(item);
-              }}
+            style={styles.card}
+            onPress={() => {
+              setSelectedCountry(item);
+              fetchLocations(item);
+            }}
             >
               <Image source={{ uri: `https://flagcdn.com/w320/${item.countryCode.toLowerCase()}.png` }} style={styles.image} />
               <Text style={styles.cardTitle}>{item.countryName}</Text>
             </TouchableOpacity>
           )}
-        />
+          />
+          </View>
       )}
-      {selectedCountry && (
+      <View>
+      {selectedCountry!==null ? (
         <>
           <Text style={styles.subHeading}>Famous Locations in {selectedCountry.countryName}</Text>
           {loadingLocations ? (
@@ -89,7 +92,12 @@ const Discover = () => {
             />
           )}
         </>
-      )}
+      ): 
+      <View style={{paddingTop:'45%'}}>
+        <Text style={{fontFamily: "outfit-bold",fontSize:20, textAlign:"center"}}>Please select any one country to discover places</Text>
+        </View>
+        }
+      </View>
     </View>
   );
 };
@@ -99,13 +107,14 @@ export default Discover;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    padding: 5,
     backgroundColor: '#fff',
   },
   heading: {
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 10,
+    fontFamily: "outfit-bold"
   },
   subHeading: {
     fontSize: 18,
@@ -117,7 +126,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     overflow: 'hidden',
     marginBottom: 15,
-    padding: 10,
     borderWidth: 1,
     borderColor: '#ddd',
     shadowColor: '#000',

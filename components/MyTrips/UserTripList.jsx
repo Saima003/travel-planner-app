@@ -12,7 +12,7 @@ const UserTripList = ({ userTrips }) => {
     userTrips && setAllTrips([...userTrips])
   }, [userTrips])
   return (
-    <View>
+    <View style={{marginBottom:20}}>
       <View style={{ marginTop: 20 }}>
         {allTrips?.[0]?.tripData?.locationInfo?.photoRef ?
           <Image
