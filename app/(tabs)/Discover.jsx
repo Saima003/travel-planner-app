@@ -79,8 +79,10 @@ const Discover = () => {
               data={locations}
               keyExtractor={(item) => item.title}
               numColumns={2}
+              style={{height:"72%", overflow:"scroll"}}
+              columnWrapperStyle={{ justifyContent: 'space-between' }}
               renderItem={({ item }) => (
-                <View style={styles.card}>
+                <View style={styles.card2}>
                   <Image source={{ uri: item.thumbnailImg || 'https://via.placeholder.com/400x200?text=No+Image' }} style={styles.image} />
                   <Text style={styles.cardTitle}>{item.title}</Text>
                   <View style={styles.ratingContainer}>
@@ -107,7 +109,7 @@ export default Discover;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5,
+    padding: 10,
     backgroundColor: '#fff',
   },
   heading: {
@@ -137,6 +139,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 8,
   },
+  card2: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    overflow: 'hidden',
+    marginBottom: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 6,
+    flex: 1,
+    alignItems: 'center',
+    marginHorizontal: 5,
+  },  
   image: {
     width: '100%',
     height: 100,
