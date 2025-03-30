@@ -45,18 +45,20 @@ const getMyTrips = async () => {
 };
 
   return (
-    <ScrollView style={{ backgroundColor: Colors.WHITE, height: "100%", padding: 20 }}>
-      <View style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "space-between" }}>
-        <Text style={{ fontFamily: "outfit-bold", fontSize: 35 }}>MyTrip</Text>
+    <View>
+      <View style={{ display: "flex", flexDirection: "row", alignContent: "center", justifyContent: "space-between", padding: 10 }}>
+        <Text style={{ fontFamily: "outfit-bold", fontSize: 35 }}>My Trips</Text>
         <TouchableOpacity onPress={() => route.push("/create-trip/SearchPlace")}>
         <Ionicons name="add-circle" size={50} color="black" />
         </TouchableOpacity>
       </View>
+    <ScrollView style={{ backgroundColor: Colors.WHITE, height: "100%", padding: 20 }}>
       {loading  ? <ActivityIndicator height="100%" size={"large"} color={Colors.PRIMARY} /> :
         loading === false && userTrips.length === 0 ?
           <StartNewTrip /> : <UserTripList userTrips={userTrips}/>
       }
     </ScrollView>
+    </View>
   )
 }
 

@@ -12,8 +12,8 @@ const UserTripList = ({ userTrips }) => {
     userTrips && setAllTrips([...userTrips])
   }, [userTrips])
   return (
-    <View style={{marginBottom:20}}>
-      <View style={{ marginTop: 20 }}>
+    <View style={{height:"95%", overflow:"scroll"}}>
+      <View>
         {allTrips?.[0]?.tripData?.locationInfo?.photoRef ?
           <Image
             source={{ uri: allTrips?.[0]?.tripData?.locationInfo?.photoRef }}
@@ -31,12 +31,13 @@ const UserTripList = ({ userTrips }) => {
         </View>
         <TouchableOpacity onPress={() => router.push({pathname:"/trip-details", params:{tripData: JSON.stringify(allTrips?.[0], null, 2)}})} style={{ backgroundColor: Colors.PRIMARY, padding: 15, borderRadius: 15, marginTop: 10 }}><Text style={{ color: Colors.WHITE, textAlign: "center", fontFamily: "outfit-medium", fontSize: 15 }}>See your plan</Text></TouchableOpacity>
       </View>
-
+        <View style={{paddingBottom:110}}>
       {
         allTrips && allTrips.length > 0 && allTrips.map((trip, index) => (
           <UserTripCard trip={trip} key={index} />
         ))
       }
+      </View>
     </View>
   )
 }

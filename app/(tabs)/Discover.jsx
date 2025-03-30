@@ -79,7 +79,7 @@ const Discover = () => {
               data={locations}
               keyExtractor={(item) => item.title}
               numColumns={2}
-              style={{height:"72%", overflow:"scroll"}}
+              style={{height:"67%", overflow:"scroll"}}
               columnWrapperStyle={{ justifyContent: 'space-between' }}
               renderItem={({ item }) => (
                 <View style={styles.card2}>
@@ -113,10 +113,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   heading: {
-    fontSize: 22,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 10,
-    fontFamily: "outfit-bold"
+    fontFamily: "outfit-bold",
+    paddingVertical:10
   },
   subHeading: {
     fontSize: 18,
