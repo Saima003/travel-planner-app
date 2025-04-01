@@ -11,7 +11,7 @@ const FlightInfo = ({ flightInfo }) => {
   return (
     <View style={{ marginTop: 20 }}>
       <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-        <Text style={{ fontFamily: "outfit-bold", fontSize: 17 }}>✈️ Flights</Text>
+        <Text style={{ fontFamily: "outfit-bold", fontSize: 20 }}>✈️ Flights</Text>
         <TouchableOpacity style={{ backgroundColor: Colors.PRIMARY, padding: 5, width: 100, borderRadius: 7, marginTop: 7 }} onPress={() => bookFlight()}><Text style={{ textAlign: "center", color: Colors.WHITE, fontFamily: "outfit" }}>Book Here</Text></TouchableOpacity>
       </View>
       <Text style={{ fontFamily: "outfit", fontSize: 17, marginTop: 7 }}>Airline: Delta</Text>

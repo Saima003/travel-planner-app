@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    flexWrap:"wrap"
   },
   row: {
     flexDirection: "row",
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   ratingText: {
-    marginLeft: 5,
+    marginLeft: 1,
     fontSize: 14,
     fontWeight: "600",
   },

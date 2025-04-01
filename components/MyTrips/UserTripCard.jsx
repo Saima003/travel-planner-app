@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View,Image  } from 'react-native'
+import { StyleSheet, Text, View,Image, TouchableOpacity  } from 'react-native'
 import React from 'react'
 import moment from 'moment'
 import { Colors } from '../../constants/Colors'
+import { useRouter } from 'expo-router'
 
 const UserTripCard = ({trip}) => {
+    const router = useRouter()
   return (
+    <TouchableOpacity onPress={() => router.push({pathname:"/trip-details", params:{tripData: JSON.stringify(trip, null, 2)}})}>
     <View style={{marginTop:20, display:"flex", flexDirection:"row", gap:10, alignItems:"center"}}>
       {
         trip?.tripData?.locationInfo?.photoRef?
@@ -23,6 +26,7 @@ const UserTripCard = ({trip}) => {
     </Text>
   </View>
     </View>
+    </TouchableOpacity>
   )
 }
 

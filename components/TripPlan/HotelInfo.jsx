@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: 'outfit-bold',
-        fontSize: 17,
+        fontSize: 20,
         marginBottom: 10,
     },
     listContent: {
