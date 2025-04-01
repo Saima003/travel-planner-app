@@ -74,8 +74,8 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F7FF', // Light pastel background
     padding: 20,
+    backgroundColor:"white"
   },
   heading: {
     fontSize: 28,
