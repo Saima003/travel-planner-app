@@ -124,6 +124,17 @@ android {
     androidResources {
         ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
     }
+    applicationVariants.all { variant ->
+    variant.outputs.all { output ->
+        if (variant.buildType.name == "release") {
+            def appName = "Travel_Planner"
+            def versionName = variant.versionName
+            def newApkName = "${appName}_v${versionName}.apk"
+            output.outputFileName = newApkName
+        }
+    }
+}
+
 }
 
 // Apply static values from `gradle.properties` to the `android.packagingOptions`

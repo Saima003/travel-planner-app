@@ -69,27 +69,51 @@ const SearchPlace = () => {
         }
     };    
 
-    const handleSelectLocation = (location) => {
-        router.push("/create-trip/SelectTraveler")
-        axios.get(`https://api.openverse.engineering/v1/images?q=${location.name}`)
-        .then((res) => {
-            let searchedItem = `${location.name}, ${location.adminName1}, ${location.countryName}`
-            setSearchTerm(searchedItem);
-            setTripData({
-                ...tripData,
-                locationInfo:{
-                    name: searchedItem,
-                    coordinates: {latitude: location.lat, longitude: location.lng},
-                    photoRef: res.data?.results?.[0]?.url,
-                }
-            })
-            setShowDropdown(false);
-        })
-        .catch((err)=>{
-            console.log(err,"error")
-        })
-    };
+    // const handleSelectLocation = (location) => {
+    //     router.push("/create-trip/SelectTraveler")
+    //     axios.get(`https://api.openverse.engineering/v1/images?q=${location.name}`)
+    //     .then((res) => {
+    //         let searchedItem = `${location.name}, ${location.adminName1}, ${location.countryName}`
+    //         setSearchTerm(searchedItem);
+    //         setTripData((prevData) => ({
+    //             ...prevData,
+    //             locationInfo: {
+    //               name: searchedItem,
+    //               coordinates: { latitude: location.lat, longitude: location.lng },
+    //               photoRef: res.data?.results?.[0]?.url,
+    //             }
+    //           }));
+    //         setShowDropdown(false);
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err,"error")
+    //     })
+    // };
 
+    const handleSelectLocation = (location) => {
+        router.push("/create-trip/SelectTraveler");
+    
+        axios.get(`https://api.openverse.engineering/v1/images?q=${location.name}`)
+          .then((res) => {
+            let searchedItem = `${location.name}, ${location.adminName1}, ${location.countryName}`;
+            setSearchTerm(searchedItem);
+    
+            setTripData((prev) => ({
+              ...prev,
+              locationInfo: {
+                name: searchedItem,
+                coordinates: { latitude: location.lat, longitude: location.lng },
+                photoRef: res.data?.results?.[0]?.url,
+              }
+            }));
+    
+            setShowDropdown(false);
+          })
+          .catch((err) => {
+            console.log(err, "error");
+          });
+    };
+    
     return (
         <SafeAreaProvider>
             <SafeAreaView style={{ flex: 1 }}>

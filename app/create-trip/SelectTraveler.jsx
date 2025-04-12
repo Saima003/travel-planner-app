@@ -36,9 +36,20 @@ const SelectTraveler = () => {
             data={SelectTravellersList}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => (
-              <TouchableOpacity style={{marginVertical: 10}} onPress={()=> {setSelectedTraveler(item);setTripData({...tripData,
-                travelerCount : SelectedTraveler
-              })}}>
+              <TouchableOpacity style={{marginVertical: 10}} 
+              // onPress={()=> {setSelectedTraveler(item);
+              //   setTripData((prevData) => ({
+              //     ...prevData,
+              //     travelerCount: item
+              //   }))}}
+              onPress={() => {
+                setSelectedTraveler(item);
+                setTripData((prev) => ({
+                  ...prev,
+                  travelerCount: item
+                }));
+              }}
+              >
                 <OptionCard option={item}  selectedOption={SelectedTraveler}/>
               </TouchableOpacity>
             )}

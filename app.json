@@ -2,6 +2,7 @@
   "expo": {
     "name": "ai-based-travel-planner",
     "slug": "ai-based-travel-planner",
+    "owner": "saima_k",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
