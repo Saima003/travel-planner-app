@@ -10,7 +10,7 @@ import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import * as AuthSession from 'expo-auth-session'; // ✅ This was missing
 
-// WebBrowser.maybeCompleteAuthSession();
+WebBrowser.maybeCompleteAuthSession();
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -20,15 +20,18 @@ const SignUp = () => {
   const [fullName, setFullName] = useState("");
 
   // ✅ Make sure you're using the correct Web Client ID (for Expo)
-  const redirectUri = AuthSession.makeRedirectUri({ useProxy: true });
-  console.log("Redirect URI:", redirectUri);
+  // const redirectUri = AuthSession.makeRedirectUri({ useProxy: true });
+  const redirectUri = AuthSession.makeRedirectUri({
+    native: "myapp://redirect", // optional for standalone apps
+    useProxy: true,
+  });
+  
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
     clientId: process.env.EXPO_PUBLIC_GOOGLE_AUTH_ID, // This must be a Web client ID
     redirectUri,
   });
 
   useEffect(() => {
-    console.log(response,"ressss")
     if (response?.type === 'success') {
       const { id_token } = response.params;
       const credential = GoogleAuthProvider.credential(id_token);
@@ -94,7 +97,7 @@ const SignUp = () => {
             <Text style={{ color: Colors.WHITE, textAlign: "center" }}>Create Account</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
               console.log("pressed");
               promptAsync({ useProxy: true });}}
@@ -102,7 +105,7 @@ const SignUp = () => {
             style={{ padding: 17, backgroundColor: Colors.WHITE, borderRadius: 15, width: "90%", marginTop: 20, borderWidth: 1 }}
           >
             <Text style={{ color: Colors.PRIMARY, textAlign: "center" }}>Sign in with Google</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TouchableOpacity
             onPress={() => router.replace("auth/sign-in")}

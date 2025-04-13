@@ -36,7 +36,7 @@ const Login = () => {
           }}
         >
           <BottomSheetView>
-            <Text style={styles.title}>AI Travel Planner</Text>
+            <Text style={styles.title}>Travel Planner</Text>
             <Text style={styles.description}>
               Discover your next adventure effortlessly. Personalized itineraries at your fingertips. Travel smarter with AI-driven insights.
             </Text>
@@ -60,7 +60,7 @@ const Login = () => {
               <>
                 <Text style={styles.additionalInfoTitle}>More About Our App</Text>
                 <Text style={styles.additionalInfo}>
-                  With our AI Travel Planner, you can create personalized travel plans based on your interests and budget. Explore top destinations, receive real-time updates, and connect with other travelers!
+                With our Travel Planner app, you can create personalized travel plans tailored to your interests and budget. Easily explore top destinations.
                 </Text>
               </>
             )}
